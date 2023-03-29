@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import numpy as np
+from sympy import *
 
 
 def print_binary_headers():
@@ -79,9 +80,16 @@ def print_graph(l, r, function):
     plt.show()
 
 
-def print_system(l, r, system):
+def print_system(l, r, ly, ry, system):
     x = np.arange(l, r + 0.01, 0.01)
-    plt.plot(x, system.calculate_function_for_graph(1, x))
+    y = np.arange(ly, ry + 0.01, 0.01)
+    X, Y = np.meshgrid(x, y)
+    f = y
+    g = system.calc_system(1, X, Y)
+    plt.contour(X, Y, (f-g), [0])
+    f = y
+    g = system.calc_system(2, X, Y)
+    plt.contour(X, Y, (f-g), [0])
     plt.grid(True)
     plt.show()
 

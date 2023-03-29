@@ -17,17 +17,17 @@ class System:
 
     def calc_system(self, index, x, y):
         if self.tp == 1:
-            return self.calc_function_first_type(index, x, y)
+            return self.calc_system_first_type(index, x, y)
         else:
-            return self.calc_function_second_type(index, x, y)
+            return self.calc_system_second_type(index, x, y)
 
-    def calc_system_first_type(self, x, y, index):
+    def calc_system_first_type(self, index, x, y):
         if index == 1:
             return x + 3 * math.log2(x) - y * y
         else:
             return 2 * x * x - x * y - 5 * y + 1
 
-    def calc_system_second_type(self, x, y, index):
+    def calc_system_second_type(self, index, x, y):
         if index == 1:
             return x * x + x - y * y - 0.15
         else:
@@ -63,10 +63,9 @@ class System:
 
     def calculate_function_for_graph_first_type(self, index, x):
         if index == 1:
-            return math.sqrt(x + 3 * math.log2(x))
-        else:
+            return math.sqrt(x + 3 * math.log(x, 10))
+        elif x != -5:
             return (2 * x * x + 1) / (x + 5)
-
 
     def calculate_function_for_graph_second_type(self, index, x):
         if index == 1:
