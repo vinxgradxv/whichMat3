@@ -150,7 +150,7 @@ def get_coefficients_from_file(f, tp):
 def get_system_from_console():
     while True:
         try:
-            print("1) x + 3*lg(x) - y^2 = 0\n2*x^2 - x*y - 5*y + 1 = 0")
+            print("1) x + 3*cos(x) - y^2 = 0\n2*x^2 - x*y - 5*y + 1 = 0")
             print("2) 0.1x^2 + x + 0.2y^2 -0.3 = 0\n0.2x^2 + y + 0.1xy -0.7 = 0")
             print("Выберете систему для решения")
             tp = int(input())

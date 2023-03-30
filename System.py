@@ -46,7 +46,7 @@ class System:
     def solve_changed_system(self, x, y):
         if self.tp == 1:
             new_x = -3 * np.cos(x) + y * y
-            new_y = (2 * x * x + x * y * 1) / 5
+            new_y = (2 * x * x + 1) / (5 + x)
             return [new_x, new_y]
         else:
             new_x = -0.1*x*x-0.2*y*y+0.3
