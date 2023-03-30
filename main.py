@@ -44,17 +44,21 @@ if __name__ == '__main__':
                 if result != Result.SUCCESS:
                     print("Во время решения уравнения было выясненно, что решить уравнение данным методом невозможно!")
     else:
-        f = open("test1.txt", "r")
+        f = open("test.txt", "r")
         is_syst = is_system_from_file(f)
         if is_syst:
             print("Метод простых итераций")
             current_system = get_system_from_file(f)
+            if current_system is None:
+                exit()
             result = iteration_system_solver.solve(current_system)
             if result != Result.SUCCESS:
                 print("Во время решения уравнения было выясненно, что решить уравнение данным методом невозможно!")
-        elif not is_syst:
+        elif is_syst is not None:
             tp = get_solver_type_from_file(f)
             current_func = get_function_from_file(f)
+            if current_func is None:
+                exit()
             if tp == 1:
                 print("Метод половинного деления")
                 result = binary_solver.solve(current_func)

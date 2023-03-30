@@ -84,10 +84,10 @@ def print_system(l, r, ly, ry, system):
     x = np.arange(l, r + 0.01, 0.01)
     y = np.arange(ly, ry + 0.01, 0.01)
     X, Y = np.meshgrid(x, y)
-    f = y
+    f = 0
     g = system.calc_system(1, X, Y)
     plt.contour(X, Y, (f-g), [0])
-    f = y
+    f = 0
     g = system.calc_system(2, X, Y)
     plt.contour(X, Y, (f-g), [0])
     plt.grid(True)
